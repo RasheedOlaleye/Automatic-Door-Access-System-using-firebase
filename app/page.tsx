@@ -647,7 +647,7 @@ export default function SetupPage() {
   // ==========================================================
 
   return (
-    <div className="min-h-dvh bg-slate-950 flex items-center justify-center px-4 py-8">
+    <div className="min-h-dvh bg-black flex items-center justify-center px-4 py-8">
 
       <div className="w-full max-w-sm">
 
@@ -657,14 +657,14 @@ export default function SetupPage() {
           <span
             className={`w-1.5 h-1.5 rounded-full ${
               status === "success"
-                ? "bg-emerald-400"
+                ? "bg-white"
                 : status === "error"
-                ? "bg-rose-400"
-                : "bg-cyan-400 animate-pulse"
+                ? "bg-zinc-400"
+                : "bg-white animate-pulse"
             }`}
           />
 
-          <span className="text-slate-500 font-mono uppercase tracking-wider">
+          <span className="text-zinc-500 font-mono uppercase tracking-wider">
 
             {status === "idle" &&
               (deviceStatus?.staConnected
@@ -692,20 +692,20 @@ export default function SetupPage() {
 
         {/* CARD */}
 
-        <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5 sm:p-6">
+        <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-5 sm:p-6">
 
-          <h1 className="text-xl font-semibold text-slate-100 tracking-tight">
+          <h1 className="text-xl font-semibold text-white tracking-tight">
             Device setup
           </h1>
 
           {deviceStatus?.staConnected &&
           status === "idle" ? (
 
-            <p className="text-sm text-slate-500 mt-1 mb-6">
+            <p className="text-sm text-zinc-500 mt-1 mb-6">
 
               Currently connected at{" "}
 
-              <span className="font-mono text-slate-300">
+              <span className="font-mono text-zinc-300">
                 {deviceStatus.staIP}
               </span>
 
@@ -713,7 +713,7 @@ export default function SetupPage() {
 
           ) : (
 
-            <p className="text-sm text-slate-500 mt-1 mb-6">
+            <p className="text-sm text-zinc-500 mt-1 mb-6">
               Connect this device to your Wi-Fi network.
             </p>
           )}
@@ -726,7 +726,7 @@ export default function SetupPage() {
 
             <button
               onClick={scanNetworks}
-              className="w-full min-h-11 flex items-center justify-center gap-2 bg-cyan-400 text-slate-950 rounded-xl font-medium text-sm active:scale-[0.98] transition-transform"
+              className="w-full min-h-11 flex items-center justify-center gap-2 bg-white text-black rounded-xl font-medium text-sm active:scale-[0.98] transition-transform"
             >
 
               {deviceStatus?.staConnected ? (
@@ -751,21 +751,21 @@ export default function SetupPage() {
             <div className="flex flex-col items-center gap-3 py-10">
 
               <Loader2
-                className="animate-spin text-cyan-400"
+                className="animate-spin text-white"
                 size={26}
               />
 
-              <p className="text-sm text-slate-500">
+              <p className="text-sm text-zinc-500">
                 Looking for nearby networks…
               </p>
 
-              <p className="text-xs text-slate-600 text-center">
+              <p className="text-xs text-zinc-600 text-center">
                 This can take a few seconds.
               </p>
 
               <button
                 onClick={cancelScan}
-                className="min-h-11 px-4 mt-1 border border-slate-800 rounded-lg text-sm text-slate-300"
+                className="min-h-11 px-4 mt-1 border border-zinc-800 rounded-lg text-sm text-zinc-300"
               >
                 Cancel
               </button>
@@ -783,7 +783,7 @@ export default function SetupPage() {
 
               <div className="flex items-center justify-between">
 
-                <span className="text-xs font-mono uppercase tracking-wider text-slate-500">
+                <span className="text-xs font-mono uppercase tracking-wider text-zinc-500">
 
                   {networks.length}{" "}
                   {networks.length === 1
@@ -795,7 +795,7 @@ export default function SetupPage() {
 
                 <button
                   onClick={scanNetworks}
-                  className="flex items-center gap-1 text-xs text-cyan-400"
+                  className="flex items-center gap-1 text-xs text-white"
                 >
 
                   <RotateCw size={12} />
@@ -810,20 +810,20 @@ export default function SetupPage() {
 
               {networks.length === 0 ? (
 
-                <div className="border border-slate-800 rounded-xl p-4 text-center">
+                <div className="border border-zinc-800 rounded-xl p-4 text-center">
 
                   <Wifi
                     size={24}
-                    className="mx-auto mb-2 text-slate-600"
+                    className="mx-auto mb-2 text-zinc-600"
                   />
 
-                  <p className="text-sm text-slate-400">
+                  <p className="text-sm text-zinc-400">
                     No Wi-Fi networks found.
                   </p>
 
                   <button
                     onClick={scanNetworks}
-                    className="mt-3 text-xs text-cyan-400"
+                    className="mt-3 text-xs text-white"
                   >
                     Scan again
                   </button>
@@ -845,8 +845,8 @@ export default function SetupPage() {
                         className={`w-full min-h-11 flex items-center justify-between gap-3 px-3 rounded-xl border text-left transition-colors ${
                           selectedSSID ===
                           network.ssid
-                            ? "border-cyan-400 bg-cyan-400/10"
-                            : "border-slate-800 bg-slate-950/50 active:bg-slate-800"
+                            ? "border-white bg-white/10"
+                            : "border-zinc-800 bg-black/50 active:bg-zinc-800"
                         }`}
                       >
 
@@ -855,11 +855,11 @@ export default function SetupPage() {
                           {network.secure && (
                             <Lock
                               size={12}
-                              className="text-slate-500 shrink-0"
+                              className="text-zinc-500 shrink-0"
                             />
                           )}
 
-                          <span className="text-sm text-slate-200 truncate">
+                          <span className="text-sm text-zinc-200 truncate">
 
                             {network.ssid}
 
@@ -901,7 +901,7 @@ export default function SetupPage() {
                           event.target.value
                         )
                       }
-                      className="w-full min-h-11 bg-slate-950 border border-slate-800 rounded-xl px-3 pr-10 text-sm text-slate-200 placeholder:text-slate-600 focus:outline-none focus:border-cyan-400"
+                      className="w-full min-h-11 bg-black border border-zinc-800 rounded-xl px-3 pr-10 text-sm text-zinc-200 placeholder:text-zinc-600 focus:outline-none focus:border-white"
                     />
 
                     <button
@@ -911,7 +911,7 @@ export default function SetupPage() {
                           !showPassword
                         )
                       }
-                      className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-500"
+                      className="absolute right-3 top-1/2 -translate-y-1/2 text-zinc-500"
                     >
 
                       {showPassword ? (
@@ -926,7 +926,7 @@ export default function SetupPage() {
 
                   <button
                     onClick={submitConfig}
-                    className="w-full min-h-11 bg-cyan-400 text-slate-950 rounded-xl font-medium text-sm active:scale-[0.98] transition-transform"
+                    className="w-full min-h-11 bg-white text-black rounded-xl font-medium text-sm active:scale-[0.98] transition-transform"
                   >
 
                     Connect to{" "}
@@ -952,15 +952,15 @@ export default function SetupPage() {
             <div className="flex flex-col items-center gap-3 py-10 text-center">
 
               <Loader2
-                className="animate-spin text-cyan-400"
+                className="animate-spin text-white"
                 size={24}
               />
 
-              <p className="text-sm text-slate-500">
+              <p className="text-sm text-zinc-500">
 
                 Connecting to{" "}
 
-                <span className="font-mono text-slate-300">
+                <span className="font-mono text-zinc-300">
                   {selectedSSID}
                 </span>
 
@@ -968,7 +968,7 @@ export default function SetupPage() {
 
               </p>
 
-              <p className="text-xs text-slate-600">
+              <p className="text-xs text-zinc-600">
                 This can take up to 25 seconds.
               </p>
 
@@ -984,21 +984,21 @@ export default function SetupPage() {
             <div className="flex flex-col items-center gap-2 py-8 text-center">
 
               <CheckCircle2
-                className="text-emerald-400"
+                className="text-white"
                 size={32}
               />
 
-              <p className="text-sm font-medium text-slate-200">
+              <p className="text-sm font-medium text-zinc-200">
                 Device connected
               </p>
 
-              <p className="text-xs text-slate-500 max-w-[28ch]">
+              <p className="text-xs text-zinc-500 max-w-[28ch]">
 
                 {deviceStatus?.staIP && (
                   <>
                     Device IP:{" "}
 
-                    <span className="font-mono text-slate-300">
+                    <span className="font-mono text-zinc-300">
                       {deviceStatus.staIP}
                     </span>
                     <br />
@@ -1013,7 +1013,7 @@ export default function SetupPage() {
                 onClick={() =>
                   router.push("/auth")
                 }
-                className="w-full min-h-11 bg-cyan-400 text-slate-950 rounded-xl font-medium text-sm mt-3 active:scale-[0.98] transition-transform"
+                className="w-full min-h-11 bg-white text-black rounded-xl font-medium text-sm mt-3 active:scale-[0.98] transition-transform"
               >
                 Continue to account setup
               </button>
@@ -1023,7 +1023,7 @@ export default function SetupPage() {
                   setStatus("idle");
                   loadDeviceStatus();
                 }}
-                className="flex items-center gap-2 min-h-11 px-4 mt-1 border border-slate-800 rounded-lg text-sm text-slate-300"
+                className="flex items-center gap-2 min-h-11 px-4 mt-1 border border-zinc-800 rounded-lg text-sm text-zinc-300"
               >
 
                 <RefreshCcw
@@ -1046,11 +1046,11 @@ export default function SetupPage() {
             <div className="flex flex-col items-center gap-3 py-8 text-center">
 
               <AlertCircle
-                className="text-rose-400"
+                className="text-zinc-300"
                 size={28}
               />
 
-              <p className="text-sm text-slate-300">
+              <p className="text-sm text-zinc-300">
                 {errorMsg}
               </p>
 
@@ -1059,7 +1059,7 @@ export default function SetupPage() {
                   setStatus("idle");
                   setErrorMsg("");
                 }}
-                className="min-h-11 px-5 bg-slate-800 text-slate-200 rounded-xl text-sm font-medium"
+                className="min-h-11 px-5 bg-zinc-800 text-white rounded-xl text-sm font-medium"
               >
                 Try again
               </button>
@@ -1071,7 +1071,7 @@ export default function SetupPage() {
 
         {/* FOOTER */}
 
-        <p className="text-center text-xs text-slate-700 font-mono mt-4">
+        <p className="text-center text-xs text-zinc-700 font-mono mt-4">
           ESP32-Setup · 192.168.4.1
         </p>
 
@@ -1111,8 +1111,8 @@ function SignalBars({
             key={index}
             className={`w-[3px] rounded-sm ${
               index <= bars
-                ? "bg-cyan-400"
-                : "bg-slate-700"
+                ? "bg-white"
+                : "bg-zinc-700"
             }`}
             style={{
               height:
